@@ -1,1 +1,0 @@
-                      YUMTUM-MANAGER
