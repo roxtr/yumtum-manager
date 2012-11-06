@@ -9,6 +9,7 @@ public class EntryController {
 	
 	@RequestMapping
 	public String getHomePage() {
+		System.out.println("in Entry Contrller");
 		return "index";
 	}
 	
