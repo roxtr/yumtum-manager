@@ -4,19 +4,30 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:p="http://www.springframework.org/schema/p"
 xmlns:context="http://www.springframework.org/schema/context"
 xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:aop="http://www.springframework.org/schema/aop"
 xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 http://www.springframework.org/schema/mvc 
 http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+http://www.springframework.org/schema/context/spring-context-3.1.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
 	<!-- <mvc:annotation-driven />
 	<mvc:resources location="/resources/**" mapping="/resources/, /, classpath:/resources/ "/>
 	 -->
 	<!-- Activates various annotations to be detected in bean classes -->
+	
 	<context:annotation-config />
+	
+	 <bean id="userPreferences" class="in.yumtum.common.UserPreferences" scope="session">
+	  <!-- this next element effects the proxying of the surrounding bean -->
+      <aop:scoped-proxy/>
+   </bean>
+	<!-- <bean id="userService" class="in.yumtum.service.UserService"/> -->
+	
 	<!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
 	 For example @Controller and @Service. Make sure to set the correct base-package -->
 	<context:component-scan base-package="in.yumtum" />
