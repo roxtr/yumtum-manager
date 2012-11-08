@@ -8,8 +8,9 @@
 
 
 
-user-${sessionScope['scopedTarget.userPreferences'].user}  <br/><br/>
-user-${sessionScope['scopedTarget.userPreferences'].city}  <br/><br/>
+user-${sessionScope['scopedTarget.userPreferences'].name}  <br/><br/>
+First Name-${sessionScope['scopedTarget.userPreferences'].fName}  <br/><br/>
+Last Name-${sessionScope['scopedTarget.userPreferences'].lName}  <br/><br/>
 
 
 

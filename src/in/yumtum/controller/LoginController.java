@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
 	@Autowired
-	private UserService service;
+	private UserService userService;
 	
 	@Autowired
 	private UserPreferences userPreferences;
@@ -29,17 +29,11 @@ public class LoginController {
 	public String validateUser(LoginForm loginForm, Map model){
 		
 		loginForm = (LoginForm) model.get("loginForm");
-		
-		System.out.println(loginForm.getUserName());
-		System.out.println(loginForm.getPassword());
-		
-		userPreferences.setUser(loginForm.getUserName());
-		
-		System.out.println(service.checkUser(loginForm.getUserName(), loginForm.getPassword(), userPreferences));
-		System.out.println(userPreferences);
-		System.out.println(userPreferences.getUser());
-		return "home";
-		
+		if(userService.checkLogin(loginForm.getUserName(), loginForm.getPassword(), userPreferences)){
+		return "redirect:home";
+		}else{
+			return "redirect:login";
+		}
 	}
 	
 	

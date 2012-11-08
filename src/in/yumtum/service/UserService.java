@@ -2,20 +2,53 @@ package in.yumtum.service;
 
 import in.yumtum.api.service.impl.UserServiceImpl;
 import in.yumtum.api.vo.ResultVO;
+import in.yumtum.api.vo.UserVO;
 import in.yumtum.common.UserPreferences;
 
 public class UserService {
 	
 	UserServiceImpl userServiceImpl = new UserServiceImpl();
 	
-	public String checkUser(String userName, String password, UserPreferences userPreferences){
+	public Boolean checkLogin(String userName, String password, UserPreferences userPreferences){
 		System.out.println("check user");
 		
-		ResultVO result = userServiceImpl.validateLogin(userName, password);
+		try{
+		    
+			ResultVO result = userServiceImpl.validateLogin(userName, password);
 		
-		userPreferences.setUser("New test check");
-		userPreferences.setCity(result.getYtRestUserVO().getCity());
-		return "checked";
+			if(result.isError()){
+				userPreferences = new UserPreferences();
+				userPreferences.setDispMsg("Login Failed");
+				return false;
+				
+			}
+			else{
+			UserVO userVO = result.getUserVO();
+			
+			userPreferences.setName(userVO.getName());
+			userPreferences.setfName(userVO.getfName());
+			userPreferences.setlName(userVO.getlName());
+			userPreferences.setAddress(userVO.getAddress());
+			userPreferences.setLocality(userVO.getLocality());
+			userPreferences.setCity(userVO.getCity());
+			userPreferences.setEmail(userVO.getEmail());
+			userPreferences.setPhone(userVO.getPhone());
+			userPreferences.setRestaurantsOwned(userVO.getRestaurantsOwned());
+			userPreferences.setUserId(userVO.getUserId());
+			userPreferences.setCity(result.getYtRestUserVO().getCity());
+			
+			return true;
+			
+			}
+			
+		}catch(Exception e){
+			userPreferences = new UserPreferences();
+			userPreferences.setDispMsg("Login Failed");
+			
+			return false;
+			
+		}
+		
 	}
 
 }
