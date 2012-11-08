@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-/*
+
 	@Autowired
 	private UserService service;
-*/	
+	
 	@Autowired
 	private UserPreferences userPreferences;
 	
@@ -35,6 +35,7 @@ public class LoginController {
 		
 		userPreferences.setUser(loginForm.getUserName());
 		
+		System.out.println(service.checkUser(loginForm.getUserName(), loginForm.getPassword(), userPreferences));
 		System.out.println(userPreferences);
 		System.out.println(userPreferences.getUser());
 		return "home";

@@ -2,6 +2,10 @@ package in.yumtum.common;
 
 public class UserPreferences {
 	
+	
+	private String user;
+	private String city;
+	
 	public String getUser() {
 		return user;
 	}
@@ -10,7 +14,15 @@ public class UserPreferences {
 		this.user = user;
 	}
 
-	private String user;
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	
 	
 
 }

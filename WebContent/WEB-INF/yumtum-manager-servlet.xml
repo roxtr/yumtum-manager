@@ -26,7 +26,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 	  <!-- this next element effects the proxying of the surrounding bean -->
       <aop:scoped-proxy/>
    </bean>
-	<!-- <bean id="userService" class="in.yumtum.service.UserService"/> -->
+	<bean id="userService" class="in.yumtum.service.UserService"/>
 	
 	<!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
 	 For example @Controller and @Service. Make sure to set the correct base-package -->

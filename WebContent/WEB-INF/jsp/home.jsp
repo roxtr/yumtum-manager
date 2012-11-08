@@ -5,13 +5,11 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="container" style="padding-top:250px;">
-1-${sessionScope.userPreferences} <br/>
-<br/>
-2-${sessionScope.userPreferences.user} <br/><br/>
 
-3-${sessionScope['scopedTarget.userPreferences']}  <br/><br/>
 
-4-${sessionScope['scopedTarget.userPreferences'].user}  <br/><br/>
+
+user-${sessionScope['scopedTarget.userPreferences'].user}  <br/><br/>
+user-${sessionScope['scopedTarget.userPreferences'].city}  <br/><br/>
 
 
 
