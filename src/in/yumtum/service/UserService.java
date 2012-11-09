@@ -17,7 +17,7 @@ public class UserService {
 			ResultVO result = userServiceImpl.validateLogin(userName, password);
 		
 			if(result.isError()){
-				userPreferences = new UserPreferences();
+				this.resetPreferences(userPreferences);
 				userPreferences.setDispMsg("Login Failed");
 				return false;
 				
@@ -42,13 +42,29 @@ public class UserService {
 			}
 			
 		}catch(Exception e){
-			userPreferences = new UserPreferences();
+			this.resetPreferences(userPreferences);
 			userPreferences.setDispMsg("Login Failed");
 			
 			return false;
 			
 		}
 		
+	}
+
+	public void resetPreferences(UserPreferences userPreferences) {
+		
+		userPreferences.setName(null);
+		userPreferences.setfName(null);
+		userPreferences.setlName(null);
+		userPreferences.setAddress(null);
+		userPreferences.setLocality(null);
+		userPreferences.setCity(null);
+		userPreferences.setEmail(null);
+		userPreferences.setPhone(null);
+		userPreferences.setRestaurantsOwned(null);
+		userPreferences.setUserId(0);
+		userPreferences.setCity(null);
+		userPreferences.setDispMsg("User is Logged Out");
 	}
 
 }

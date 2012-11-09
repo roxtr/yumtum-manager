@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
 	@Autowired
@@ -21,11 +20,11 @@ public class LoginController {
 	@Autowired
 	private UserPreferences userPreferences;
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public String getUsersPage() {
 		return "login";
 	}
-	@RequestMapping (method=RequestMethod.POST)
+	@RequestMapping (value="/login",method=RequestMethod.POST)
 	public String validateUser(LoginForm loginForm, Map model){
 		
 		loginForm = (LoginForm) model.get("loginForm");
@@ -36,5 +35,12 @@ public class LoginController {
 		}
 	}
 	
-	
+	@RequestMapping (value="/logout")
+	public String logoutUser(){
+		
+		userService.resetPreferences(userPreferences);
+		
+		return "logout";
+		
+	}
 }

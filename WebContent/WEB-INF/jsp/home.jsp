@@ -6,13 +6,10 @@
 
 <div class="container" style="padding-top:250px;">
 
+Welcome,&nbsp;${sessionScope['scopedTarget.userPreferences'].fName}&nbsp;Last Name-${sessionScope['scopedTarget.userPreferences'].lName}
 
-
-user-${sessionScope['scopedTarget.userPreferences'].name}  <br/><br/>
-First Name-${sessionScope['scopedTarget.userPreferences'].fName}  <br/><br/>
-Last Name-${sessionScope['scopedTarget.userPreferences'].lName}  <br/><br/>
-
-
+<a href="./restaurants">Restaurants Home</a>
+<a href="./bookings">Bookings Home</a>
 
 </div>
 
