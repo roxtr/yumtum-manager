@@ -64,7 +64,7 @@ public class UserService {
 		userPreferences.setRestaurantsOwned(null);
 		userPreferences.setUserId(0);
 		userPreferences.setCity(null);
-		userPreferences.setDispMsg("User is Logged Out");
+		userPreferences.setDispMsg("Logged Out");
 	}
 
 }

@@ -23,12 +23,7 @@
     
     <input type="submit" value="Submit" />
     </div>
-	  <br/><br/>
-	back1-${sessionScope['scopedTarget.userPreferences']}  <br/><br/>
 
-	back2-${sessionScope['scopedTarget.userPreferences'].user}  <br/><br/>
-	
-	
 </form:form>
 <%-- </c:when>
 <c:otherwise>

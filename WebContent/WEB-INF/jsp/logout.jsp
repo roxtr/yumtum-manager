@@ -7,10 +7,7 @@
 <div class="container" style="padding-top:250px;">
 
 
-user-${sessionScope['scopedTarget.userPreferences'].name}  <br/><br/>
-First Name-${sessionScope['scopedTarget.userPreferences'].fName}  <br/><br/>
-Last Name-${sessionScope['scopedTarget.userPreferences'].lName}  <br/><br/>
-message: ${sessionScope['scopedTarget.userPreferences'].dispMsg}  <br/><br/>
+ <br/><br/>${sessionScope['scopedTarget.userPreferences'].dispMsg} <br/><br/>
 
 
 

@@ -64,6 +64,11 @@
 });
 	</script>
 	</head>
+	<c:set var="name">Guest </c:set>
+	<c:if test="${not empty sessionScope['scopedTarget.userPreferences'].fName}">
+	 <c:set var="name">${sessionScope['scopedTarget.userPreferences'].fName}&nbsp;${sessionScope['scopedTarget.userPreferences'].lName}</c:set>
+	</c:if>
+	
 	<body style="background-image:url('http://subtlepatterns.com/patterns/white_bed_sheet.png');background-repeat:repeat;">
 	<div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -82,7 +87,7 @@
 			  <li><a href="#contact">How it Works</a></li>
             </ul>
           </div><!--/.nav-collapse -->
-        <ul class="nav pull-right" id="loginname"> <li id="fat-menu" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Sripathi Pai<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="profile.html">My Profile</a></li><li><a href="#">My Bookings</a></li><li class="divider"></li><li id="logout"><a href="#">Logout</a></li></ul></li></ul></div>
+        <ul class="nav pull-right" id="loginname"> <li id="fat-menu" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">${name}<b class="caret"></b></a><ul class="dropdown-menu"><li><a href="profile">My Profile</a></li><li><a href="bookings">My Bookings</a></li><li class="divider"></li><li id="logout"><a href="logout">Logout</a></li></ul></li></ul></div>
       </div>
 	  </div>
 	  
