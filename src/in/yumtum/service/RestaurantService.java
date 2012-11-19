@@ -54,6 +54,21 @@ public class RestaurantService {
 		
 	}
 	
+	public Boolean createRestaurant(RestaurantForm restForm){
+		Boolean created = false;
+		
+		RestaurantVO restVO = this.setApiRestVO(restForm);
+		restVO.setActive(1);
+		restVO.setCusines("1,2");
+		ResultVO result = restService.createRestaurant(restVO);
+		
+		if(!result.isError())
+			created = true;
+		
+		return created;
+	}
+	
+	
 private RestaurantForm setLocalVO(RestaurantVO ytRest){
 		
 		RestaurantForm restVO= new RestaurantForm();
@@ -77,5 +92,31 @@ private RestaurantForm setLocalVO(RestaurantVO ytRest){
 		
 		return restVO;
 	}
+
+
+private RestaurantVO setApiRestVO(RestaurantForm restForm){
+		
+		RestaurantVO restVO= new RestaurantVO();
+		
+		restVO.setAcceptCC(restForm.getAcceptCC());
+		restVO.setActive(restForm.getActive());
+		restVO.setAddress(restForm.getAddress());
+		restVO.setAvgCostForTwo(restForm.getAvgCostForTwo());
+		restVO.setCity(restForm.getCity());
+		restVO.setCusines(restForm.getCusines());
+		restVO.setHasAC(restForm.getHasAC());
+		restVO.setHasWifi(restForm.getHasWifi());
+		restVO.setLatitude(restForm.getLatitude());
+		restVO.setLongitude(restForm.getLongitude());
+		restVO.setLocality(restForm.getLocality());
+		restVO.setName(restForm.getName());
+		restVO.setNfsPhone(restForm.getNfsPhone());
+		restVO.setPhones(restForm.getPhones());
+		restVO.setRest_createdBy(restForm.getRest_createdBy());
+		restVO.setVeg(restForm.getIsVeg());
+		
+		return restVO;
+	}
+
 
 }

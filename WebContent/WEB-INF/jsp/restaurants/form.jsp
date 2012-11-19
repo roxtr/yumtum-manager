@@ -40,25 +40,27 @@
             <form:input path="avgCostForTwo" cssClass="input-xlarge" id="input02"/>   
         </div>
 	    <div class="controls">
-            <form:checkbox path="hasWifi" label="Has Wifi" value="0"/>    
+            <form:checkbox path="hasWifi" label="Has Wifi" value="1"/>    
         </div>
 		
 		<div class="controls">
-            <form:checkbox path="acceptCC" label="Accepts CC"  value="0"/>    
+            <form:checkbox path="acceptCC" label="Accepts CC"  value="1"/>    
         </div>
         
 		<div class="controls">
-            <form:checkbox path="isVeg" label="Serves NonVeg"  value="0"/>    
+            <form:checkbox path="isVeg" label="Serves NonVeg"  value="1"/>    
         </div>
         
 		<div class="controls">
-            <form:checkbox path="hasAC" label="Has AC"  value="0"/>    
+            <form:checkbox path="hasAC" label="Has AC"  value="1"/>    
         </div>
         <div class="controls">
         	<label>Notification Phone Number</label>
             <form:input path="nfsPhone" cssClass="input-xlarge" id="input02"/>
         </div>
-        <form:button name="Submit" value="Submit"/>
+        <form:hidden path="rest_createdBy" value="${sessionScope['scopedTarget.userPreferences'].userId}"/>
+        <form:button name="Submit" value="Add Restaurant"/>
+        
 </form:form>
 </div>
 

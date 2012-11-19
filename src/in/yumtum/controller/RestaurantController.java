@@ -72,17 +72,17 @@ public class RestaurantController {
 
 	@RequestMapping(value="/new", method = RequestMethod.POST)
 	public String processSubmit(@ModelAttribute("restaurant") RestaurantForm restForm){
-		System.out.println("Address:"+restForm.getAddress());
-		System.out.println("City:"+restForm.getCity());
-		System.out.println("Latitude:"+restForm.getLatitude());
-		System.out.println("Locality:"+restForm.getLocality());
-		System.out.println("Longitude:"+restForm.getLongitude());
-		System.out.println("Name:"+restForm.getName());
-		System.out.println("Nfs Phone:"+restForm.getNfsPhone());
-		System.out.println("Phones:"+restForm.getPhones());
-		System.out.println("Accepts CC:"+restForm.getAcceptCC());
-		System.out.println("Accepts CC:"+restForm.getHasWifi());
-		return "restaurants/form";
+		
+		Boolean created = false;
+		created = restService.createRestaurant(restForm);
+		
+		if(!created){
+			userPreferences.setDispMsg("Restaurant was Not created");
+			return "restaurants/form";
+		}else{
+			userPreferences.setDispMsg("Restaurant created successfully");
+			return "redirect:/restaurants";
+		}
 	}
 	
 	@RequestMapping(value="/{restId}/update", method = RequestMethod.GET)
