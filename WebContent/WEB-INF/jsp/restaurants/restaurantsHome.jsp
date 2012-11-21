@@ -6,12 +6,11 @@
 <jsp:include page="../common/header.jsp"></jsp:include>
 
 <div class="container" style="padding-top:250px;">
-
-Object :<c:out value="${restaurants}"></c:out><br/>
-Name :<c:out value="${restaurants.name}"></c:out><br/>
-Locality :<c:out value="${restaurants.locality}"></c:out><br/>
-City :<c:out value="${restaurants.city}"></c:out><br/>
-
+${restaurants}
+ 
+<c:forEach var="restaurant" items="${restaurants}">
+	<a href="restaurants/${restaurant.restId}/update">${restaurant.name}</a><br/>
+</c:forEach>
 </div>
 
 <jsp:include page="../common/footer.jsp"></jsp:include>

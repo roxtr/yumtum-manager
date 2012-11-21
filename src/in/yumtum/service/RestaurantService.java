@@ -14,7 +14,7 @@ public class RestaurantService {
 	
 	RestaurantServiceImpl restService = new RestaurantServiceImpl();
 	
-	public RestaurantForm getRestaurants(UserPreferences userPreferences){
+	public List<RestaurantForm> getRestaurants(UserPreferences userPreferences){
 		
 		/*ResultVO result = restService.getAllRestaurants(userPreferences.getRestaurantsOwned(), new Integer(userPreferences.getUserId()));
 		
@@ -36,11 +36,25 @@ public class RestaurantService {
 			
 		}*/
 		
-		ResultVO result = restService.getRestaurantDetails(new Integer(userPreferences.getRestaurantsOwned()));
+		//ResultVO result = restService.getRestaurantDetails(new Integer(userPreferences.getRestaurantsOwned()));
 		
-		RestaurantForm restForm = setLocalVO(result.getRestVO());
 		
-		return restForm;	
+		
+		//ResultVO result = restService.getAllRestaurants(userPreferences.getRestaurantsOwned(), userPreferences.getUserId());
+		
+		ResultVO result = restService.getAllRestaurantsByUser(userPreferences.getUserId());
+		
+		List<RestaurantVO> restVOList = result.getRestVOList();
+		List<RestaurantForm> restFormList = new ArrayList<RestaurantForm>();
+		
+		if(restVOList != null){
+			
+			for(RestaurantVO restVO:restVOList){
+				restFormList.add(setLocalVO(restVO));
+			}
+		}
+		
+		return restFormList;	
 		
 	}
 	
@@ -89,6 +103,7 @@ private RestaurantForm setLocalVO(RestaurantVO ytRest){
 		restVO.setPhones(ytRest.getPhones());
 		restVO.setRest_createdBy(ytRest.getRest_createdBy());
 		restVO.setIsVeg(ytRest.getIsVeg());
+		restVO.setRestId(ytRest.getRestId());
 		
 		return restVO;
 	}
@@ -118,5 +133,29 @@ private RestaurantVO setApiRestVO(RestaurantForm restForm){
 		return restVO;
 	}
 
+public Boolean updateRestaurant(RestaurantForm restForm) {
+
+	Boolean updated = false;
+	RestaurantVO restVO = this.setApiRestVO(restForm);
+	restVO.setActive(1);
+	restVO.setCusines("1,2");
+	ResultVO result = restService.updateRestaurant(restVO);
+	
+	if(!result.isError())
+		updated = true;
+	
+	return updated;
+	
+}
+
+public List<Integer> stringToIntList(String restIds){
+	
+	List<Integer> intList = new ArrayList<Integer>();
+	
+	String[] strArr = restIds.split(",");
+	
+	
+	return intList;
+}
 
 }

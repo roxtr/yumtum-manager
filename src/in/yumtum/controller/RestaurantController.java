@@ -51,8 +51,8 @@ public class RestaurantController {
 					System.out.println("New Check::"+restList.size());
 					mav.addObject("restaurants", restList);
 				*/
-					RestaurantForm restForm = restService.getRestaurants(userPreferences);
-					mav.addObject("restaurants", restForm);
+					List<RestaurantForm> restFormList = restService.getRestaurants(userPreferences);
+					mav.addObject("restaurants", restFormList);
 					
 				}
 			}}
@@ -65,32 +65,68 @@ public class RestaurantController {
 	
 	@RequestMapping(value="/new", method = RequestMethod.GET)
 	public String setupForm(Model model){
+		
+		if(userPreferences.getfName() == null){
+			
+			return "redirect:/index";
+		
+		}else{
 		RestaurantForm restForm = new RestaurantForm();
 		model.addAttribute("restaurant", restForm);
 		return "restaurants/form";
+		}
 	}
 
 	@RequestMapping(value="/new", method = RequestMethod.POST)
 	public String processSubmit(@ModelAttribute("restaurant") RestaurantForm restForm){
 		
 		Boolean created = false;
-		created = restService.createRestaurant(restForm);
+		if(userPreferences.getfName() == null){
+			
+			return "redirect:/index";
 		
+		}else{
+			created = restService.createRestaurant(restForm);
 		if(!created){
 			userPreferences.setDispMsg("Restaurant was Not created");
 			return "restaurants/form";
 		}else{
 			userPreferences.setDispMsg("Restaurant created successfully");
 			return "redirect:/restaurants";
+			}
 		}
 	}
 	
 	@RequestMapping(value="/{restId}/update", method = RequestMethod.GET)
 	public String setupForm(@PathVariable("restId")int restId,Model model){
+		if(userPreferences.getfName() == null){
+			
+			return "redirect:/index";
 		
+		}else{
 		RestaurantForm restForm = restService.getRestaurantById(restId);
 		model.addAttribute("restaurant", restForm);
 		return "restaurants/form";
+		}
 	}
-	
+	@RequestMapping(value="/{restId}/update", method = RequestMethod.POST)
+	public String processUpdateSubmit(@ModelAttribute("restaurant") RestaurantForm restForm){
+		
+		Boolean updated = false;
+		
+		if(userPreferences.getfName() == null){
+			
+			return "redirect:/index";
+		
+		}else{
+			updated = restService.updateRestaurant(restForm);
+		if(!updated){
+			userPreferences.setDispMsg("Restaurant was Not created");
+			return "restaurants/form";
+		}else{
+			userPreferences.setDispMsg("Restaurant created successfully");
+			return "redirect:/restaurants";
+			}
+		}
+	}
 }
