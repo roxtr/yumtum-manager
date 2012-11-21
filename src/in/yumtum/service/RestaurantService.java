@@ -129,7 +129,7 @@ private RestaurantVO setApiRestVO(RestaurantForm restForm){
 		restVO.setPhones(restForm.getPhones());
 		restVO.setRest_createdBy(restForm.getRest_createdBy());
 		restVO.setVeg(restForm.getIsVeg());
-		
+		restVO.setRestId(restForm.getRestId());
 		return restVO;
 	}
 

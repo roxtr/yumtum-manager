@@ -40,11 +40,11 @@ public class RestaurantController {
 			}else{
 				mav = new ModelAndView("restaurants/restaurantsHome");
 				
-				System.out.println("New Check::"+userPreferences.getRestaurantsOwned());
-				
+				//System.out.println("New Check::"+userPreferences.getRestaurantsOwned());
+				/*
 				if(userPreferences.getRestaurantsOwned() == null){
 					return mav;
-				} else {
+				} else {*/
 				/*	List<RestaurantForm> restList = restService.getRestaurants(userPreferences);
 					
 					System.out.println("New Check::"+restList);
@@ -53,8 +53,7 @@ public class RestaurantController {
 				*/
 					List<RestaurantForm> restFormList = restService.getRestaurants(userPreferences);
 					mav.addObject("restaurants", restFormList);
-					
-				}
+				
 			}}
 			catch(Exception e){
 					e.printStackTrace();
@@ -110,7 +109,7 @@ public class RestaurantController {
 		}
 	}
 	@RequestMapping(value="/{restId}/update", method = RequestMethod.POST)
-	public String processUpdateSubmit(@ModelAttribute("restaurant") RestaurantForm restForm){
+	public String processUpdateSubmit(@PathVariable("restId")int restId, @ModelAttribute("restaurant") RestaurantForm restForm){
 		
 		Boolean updated = false;
 		
@@ -119,6 +118,7 @@ public class RestaurantController {
 			return "redirect:/index";
 		
 		}else{
+			restForm.setRestId(restId);
 			updated = restService.updateRestaurant(restForm);
 		if(!updated){
 			userPreferences.setDispMsg("Restaurant was Not created");

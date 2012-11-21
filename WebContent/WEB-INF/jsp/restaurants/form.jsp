@@ -59,7 +59,7 @@
             <form:input path="nfsPhone" cssClass="input-xlarge" id="input02"/>
         </div>
         <form:hidden path="rest_createdBy" value="${sessionScope['scopedTarget.userPreferences'].userId}"/>
-        <form:button name="Submit" value="Add Restaurant"/>
+        <input type="Submit" name="Submit" value="Add/Update Restaurant"/>
         
 </form:form>
 </div>
