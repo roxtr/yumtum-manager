@@ -28,6 +28,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
    </bean>
 	<bean id="userService" class="in.yumtum.service.UserService"/>
 	<bean id="restaurantService" class="in.yumtum.service.RestaurantService"/>
+	<bean id="timingService" class="in.yumtum.service.TimingService"/>
 	<!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
 	 For example @Controller and @Service. Make sure to set the correct base-package -->
 	<context:component-scan base-package="in.yumtum" />
