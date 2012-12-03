@@ -8,8 +8,9 @@
 
 Welcome,&nbsp;${sessionScope['scopedTarget.userPreferences'].fName}&nbsp;${sessionScope['scopedTarget.userPreferences'].lName}
 <br/><br/>
-<a href="restaurants">My Restaurants</a>
-<a href="bookings">Bookings</a>
+<a href="restaurants">My Restaurants</a><br/>
+<c:if test="${sessionScope['scopedTarget.userPreferences'].admin}"><a href="admin">Admin Control</a><br/></c:if>
+<a href="bookings">Bookings</a><br/>
 
 </div>
 

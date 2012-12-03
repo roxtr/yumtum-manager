@@ -1,17 +1,7 @@
-package in.yumtum.common;
+package in.yumtum.forms;
 
-import java.io.Serializable;
+public class UserForm {
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-@Component
-@Scope("session")
-public class UserPreferences implements Serializable {
-	
-	
-	private static final long serialVersionUID = 5307927482444401384L;
-	
 	private String address;
 	private String city;
 	private String email;
@@ -22,11 +12,10 @@ public class UserPreferences implements Serializable {
 	private String phone;
 	private String restaurantsOwned;
 	private int userId;
-	private String dispMsg;
 	private Boolean admin;
 	private Boolean restaurantCreate;
 	private String restaurantsAccess;
-	
+	private String password;
 	public String getAddress() {
 		return address;
 	}
@@ -87,19 +76,6 @@ public class UserPreferences implements Serializable {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public String getDispMsg() {
-		return dispMsg;
-	}
-	public void setDispMsg(String dispMsg) {
-		this.dispMsg = dispMsg;
-	}
-	
-	public String getRestaurantsAccess() {
-		return restaurantsAccess;
-	}
-	public void setRestaurantsAccess(String restaurantsAccess) {
-		this.restaurantsAccess = restaurantsAccess;
-	}
 	public Boolean getAdmin() {
 		return admin;
 	}
@@ -112,5 +88,16 @@ public class UserPreferences implements Serializable {
 	public void setRestaurantCreate(Boolean restaurantCreate) {
 		this.restaurantCreate = restaurantCreate;
 	}
-
+	public String getRestaurantsAccess() {
+		return restaurantsAccess;
+	}
+	public void setRestaurantsAccess(String restaurantsAccess) {
+		this.restaurantsAccess = restaurantsAccess;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

@@ -4,6 +4,7 @@ import in.yumtum.api.service.impl.UserServiceImpl;
 import in.yumtum.api.vo.ResultVO;
 import in.yumtum.api.vo.UserVO;
 import in.yumtum.common.UserPreferences;
+import in.yumtum.forms.UserForm;
 
 public class UserService {
 	
@@ -36,6 +37,9 @@ public class UserService {
 			userPreferences.setRestaurantsOwned(userVO.getRestaurantsOwned());
 			userPreferences.setUserId(userVO.getUserId());
 			userPreferences.setCity(result.getYtRestUserVO().getCity());
+			userPreferences.setAdmin(userVO.getAdmin());
+			userPreferences.setRestaurantCreate(userVO.getRestaurantCreate());
+			userPreferences.setRestaurantsAccess(userVO.getRestaurantsAccess());
 			
 			return true;
 			
@@ -67,4 +71,35 @@ public class UserService {
 		userPreferences.setDispMsg("Logged Out");
 	}
 
+	public Boolean addUser(UserForm userForm) {
+		Boolean created = false;
+		
+		ResultVO result = userServiceImpl.createUser(setApiRestVO(userForm));
+		
+		if(!result.isError())
+			created = true;
+		
+		return created;
+	
+	}
+
+	
+	private UserVO setApiRestVO(UserForm userForm){
+		
+		UserVO user = new UserVO();
+		
+		user.setAddress(userForm.getAddress());
+		user.setAdmin(userForm.getAdmin());
+		user.setCity(userForm.getCity());
+		user.setEmail(userForm.getEmail());
+		user.setfName(userForm.getfName());
+		user.setlName(userForm.getlName());
+		user.setLocality(userForm.getLocality());
+		user.setName(userForm.getName());
+		user.setPassword(userForm.getPassword());
+		user.setPhone(userForm.getPhone());
+		user.setRestaurantCreate(userForm.getRestaurantCreate());
+		
+		return user;
+	}
 }
