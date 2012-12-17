@@ -9,7 +9,7 @@ xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 http://www.springframework.org/schema/mvc 
-http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.1.xsd
 http://www.springframework.org/schema/aop
@@ -29,6 +29,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 	<bean id="userService" class="in.yumtum.service.UserService"/>
 	<bean id="restaurantService" class="in.yumtum.service.RestaurantService"/>
 	<bean id="timingService" class="in.yumtum.service.TimingService"/>
+	<bean id="bookingService" class="in.yumtum.service.BookingService"/>
 	<!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
 	 For example @Controller and @Service. Make sure to set the correct base-package -->
 	<context:component-scan base-package="in.yumtum" />

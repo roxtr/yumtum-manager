@@ -92,4 +92,13 @@ public Boolean updateRestTiming(TimingForm timingForm) {
 	
 	return updated;
 }
+
+public String getTimingsJson(int restId) {
+	
+	List<TimingForm> timingFormList = this.getTimings(restId);
+	
+	
+	
+	return null;
+}
 }

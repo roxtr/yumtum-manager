@@ -1,17 +1,26 @@
 package in.yumtum.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import in.yumtum.common.UserPreferences;
 import in.yumtum.forms.BookingForm;
+import in.yumtum.forms.RestaurantForm;
 import in.yumtum.forms.TimingForm;
 import in.yumtum.service.BookingService;
+import in.yumtum.service.RestaurantService;
+import in.yumtum.service.TimingService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -26,6 +35,11 @@ public class BookingController {
 	@Autowired
 	private BookingService bookingService;
 	
+	@Autowired
+	private TimingService timingService; 
+	
+	@Autowired
+	private RestaurantService restService; 
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getHome(){
@@ -50,4 +64,51 @@ public class BookingController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/new", method = RequestMethod.GET)
+	public String setupForm(Model model){
+		
+		if(userPreferences.getfName() == null){
+			
+			return "redirect:/index";
+		
+		}else{
+		BookingForm bookingForm = new BookingForm();
+		List<RestaurantForm> restFormList = restService.getRestaurants(userPreferences);
+		model.addAttribute("restaurants", restFormList);
+		model.addAttribute("restBooking", bookingForm);
+		
+		return "bookings/form";
+		}
+	}
+	
+	@RequestMapping(value="/{restId}/timings", method = RequestMethod.GET )
+	@ResponseBody
+	public String getTImings(@PathVariable("restId")int restId){
+		
+		List<TimingForm> timingFormList = new ArrayList<TimingForm>();
+		String timingList = null;
+		
+		try{
+			if(userPreferences.getfName() == null){
+					
+				return "{}";
+			
+			}else{
+				timingFormList = timingService.getTimings(restId);
+				if(timingFormList != null){
+				for(TimingForm timingForm:timingFormList){
+					
+					timingList = timingForm.getTimingId().toString()+":'"+timingForm.getReserveTime()+"'";
+				}}
+				timingList = "{"+timingList+"},";
+				
+				}
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		timingList = "{\"timings\" :"+timingList.substring(0, timingList.length()-1)+"}";
+		return timingList;
+	}
+		
 }
