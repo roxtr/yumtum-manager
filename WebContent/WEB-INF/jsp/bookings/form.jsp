@@ -4,21 +4,59 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
+
+<jsp:include page="../common/header.jsp"></jsp:include>
+
+
 <script type="text/javascript">
    function getTimings(selectObj){
 	   var idx = selectObj.selectedIndex; 
 	   // get the value of the selected option 
 	   var restId = selectObj.options[idx].value; 
 	   $.getJSON(restId+'/timings/', function(data) {
-alert(data);
-	   
+		  /*  var cSelect = document.getElementById("timings"); 
+		   var len=cSelect.options.length; 
+		   while (len > 0) { 
+		   cSelect.remove(0); 
+		   } 
+		   var optionStr = "";
+		   $(data).each(function(i,val){
+			    $.each(val,function(k,v){    
+			          var o = new Option(v, k);
+			        /// jquerify the DOM object 'o' so we can use the html method
+			        $(o).html(v);
+			        $('#timings').append(o);
+			});
+
+				   
+				 
+			});*/
+			
+		   var cSelect = document.getElementById("timings"); 
+		   // remove the current options from the country select 
+		   var len=cSelect.options.length; 
+		   while (len > 0) { 
+		   cSelect.remove(0); 
+		   } 
+		   var newOption; 
+		   // create new options 
+		   $(data).each(function(k,v){  
+		   newOption = document.createElement("option"); 
+		   newOption.value = k;  // assumes option string and value are the same 
+		   newOption.text=v; 
+		   // add the new option 
+		   try { 
+		   cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
+		   } 
+		   catch (e) { 
+		   cSelect.appendChild(newOption); 
+		   } 
+		   }); 
+	
    });
    }
+    
 </script>
-
-<jsp:include page="../common/header.jsp"></jsp:include>
-
-
 <div class="container" style="padding-top:250px;">
 <form:form modelAttribute="restBooking" method="post">
 		<div class="controls">
@@ -29,6 +67,10 @@ alert(data);
 	              </c:forEach>
 	          </form:select>
         </div>
+        <form:select path="timing_id" id="timings">
+        </form:select>
+        <form:input path="reserveDate" type="text" value="16-02-2012" class="datepicker" id="dp1"/> 
+        
 		<%-- <div class="controls">
               <label>Time of Day</label>
               <form:select path="timeOfDay" id="select01">

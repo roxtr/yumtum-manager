@@ -86,28 +86,30 @@ public class BookingController {
 	public String getTImings(@PathVariable("restId")int restId){
 		
 		List<TimingForm> timingFormList = new ArrayList<TimingForm>();
-		String timingList = null;
+		String timingList = "";
 		
 		try{
 			if(userPreferences.getfName() == null){
 					
-				return "{}";
+				return "[]";
 			
 			}else{
 				timingFormList = timingService.getTimings(restId);
 				if(timingFormList != null){
 				for(TimingForm timingForm:timingFormList){
 					
-					timingList = timingForm.getTimingId().toString()+":'"+timingForm.getReserveTime()+"'";
+					String timingId = "\""+timingForm.getTimingId().toString()+"\"";
+					String timing = "\""+timingForm.getReserveTime()+"\"";
+					String oneTiming = "{"+timingId+":"+timing+"}";
+					timingList=timingList+oneTiming+",";
 				}}
-				timingList = "{"+timingList+"},";
 				
 				}
 		}catch(Exception e){
 			e.printStackTrace();
 			
 		}
-		timingList = "{\"timings\" :"+timingList.substring(0, timingList.length()-1)+"}";
+		timingList = "["+timingList.substring(0, timingList.length()-1)+"]";
 		return timingList;
 	}
 		

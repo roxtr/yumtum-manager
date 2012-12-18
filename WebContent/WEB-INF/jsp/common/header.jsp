@@ -16,7 +16,7 @@
 	 <link href="<c:url value="/resources/css/bootstrap.css"/>" rel="stylesheet">
 	<!--link href="/resources/css/bootstrap-responsive.css" rel="stylesheet"-->
 	<link href="<c:url value="/resources/css/yumtum-custom.css"/>" rel="stylesheet">
-	<link href="<c:url value="resources/css/datepicker.css"/>" rel="stylesheet">
+	<link href="<c:url value="/resources/css/datepicker.css"/>" rel="stylesheet">
 	<script src="<c:url value="/resources/js/jquery.js"/>"></script>
 	<script>
 		$(document).ready(function (){		
