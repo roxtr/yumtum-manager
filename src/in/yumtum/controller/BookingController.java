@@ -17,6 +17,7 @@ import in.yumtum.service.TimingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -78,6 +79,28 @@ public class BookingController {
 		model.addAttribute("restBooking", bookingForm);
 		
 		return "bookings/form";
+		}
+	}
+	
+	@RequestMapping(value="/new", method = RequestMethod.POST)
+	public String processSubmit(@ModelAttribute("restBooking") BookingForm bookingForm){
+		
+		Boolean created = false;
+		
+		if(userPreferences.getfName() == null){
+			
+			return "redirect:/index";
+		
+		}else{
+			created = bookingService.createBooking(bookingForm);
+			if(!created){
+				userPreferences.setDispMsg("Booking was Not created");
+				return "bookings/form";
+			}else{
+				userPreferences.setDispMsg("Booking created successfully");
+				return "bookings/home";
+				}
+			
 		}
 	}
 	

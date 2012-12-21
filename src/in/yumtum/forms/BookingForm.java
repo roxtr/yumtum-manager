@@ -39,8 +39,8 @@ public class BookingForm {
 	public Date getReserveDate() {
 		return reserveDate;
 	}
-	public void setReserveDate(Date reserveDate) {
-		this.reserveDate = reserveDate;
+	public void setReserveDate(String reserveDate) {
+		this.reserveDate = new Date(reserveDate);
 	}
 	public Integer getRestId() {
 		return restId;
