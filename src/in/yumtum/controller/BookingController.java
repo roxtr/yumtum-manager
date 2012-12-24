@@ -92,7 +92,7 @@ public class BookingController {
 			return "redirect:/index";
 		
 		}else{
-			created = bookingService.createBooking(bookingForm);
+			created = bookingService.createBooking(bookingForm,userPreferences);
 			if(!created){
 				userPreferences.setDispMsg("Booking was Not created");
 				return "bookings/form";

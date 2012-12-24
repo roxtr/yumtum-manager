@@ -8,7 +8,7 @@ public class BookingForm {
     private String bookingSourceId;
     private Date bookingTime;
     private String noOfPeople;
-    private Date reserveDate;
+    private String reserveDate;
     private Integer restId;
     private Integer timing_id;
     
@@ -36,11 +36,11 @@ public class BookingForm {
 	public void setNoOfPeople(String noOfPeople) {
 		this.noOfPeople = noOfPeople;
 	}
-	public Date getReserveDate() {
+	public String getReserveDate() {
 		return reserveDate;
 	}
 	public void setReserveDate(String reserveDate) {
-		this.reserveDate = new Date(reserveDate);
+		this.reserveDate = reserveDate;
 	}
 	public Integer getRestId() {
 		return restId;
