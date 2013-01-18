@@ -26,10 +26,12 @@
     </div>
     </div>
     <div class="control-group">
-    <div class="controls">
+    <div class="controls controls-row">
     <label class="checkbox">
-        <input type="checkbox"> Remember me
+        <input  type="checkbox"> Remember me
+       <a style="margin:0 1px 0 68px; display:inline" href="/account/resend_password">Forgot password?</a> 
       </label>
+      
     
    <button class="btn btn-large btn-block btn-primary" type="submit">Sign in</button>
     </div>
