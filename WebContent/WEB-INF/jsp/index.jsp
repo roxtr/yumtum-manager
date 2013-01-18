@@ -3,25 +3,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="common/header.jsp"></jsp:include>
 
-<div class="container" style="padding-top:250px;">
+<div class="container" style="padding-top:250px; padding-right:100px;">
 <%-- <c:set var="user" value="${sessionScope.userPreferences.user}"></c:set> 
 
 <c:choose>
 	<c:when test="${user.isEmpty()}"> --%>
-<form:form action="login" commandName="loginForm" method="post">
-	<div class="controls">
-        <label>User Name</label> <form:errors path="userName" cssClass="errors"/>
-        <form:input path="userName"  cssClass="input-xlarge"/>
+<form:form action="login" commandName="loginForm" method="post" class="form-horizontal">
+	<div class="control-group">
+		
+	   <label class="control-label" for="userName">User Name</label> <form:errors path="userName" cssClass="errors"/>
+	        <div class="controls">
+	        	<form:input path="userName"  cssClass="input-xlarge" placeholder="Username"/>
+	              
+	   		 </div>
+    </div>
+    <div class="control-group">
+	
+              	<label class="control-label" for="password">Password</label><form:errors path="password" cssClass="errors"/>
+              	<div class="controls">
+              <form:password path="password" cssClass="input-xlarge" placeholder="Password"/> 
               
     </div>
-	<div class="controls">
-              	<label>Password</label><form:errors path="password" cssClass="errors"/>
-              <form:password path="password" cssClass="input-xlarge"/> 
-              
     </div>
+    <div class="control-group">
     <div class="controls">
+    <label class="checkbox">
+        <input type="checkbox"> Remember me
+      </label>
     
-    <input type="submit" value="Submit" />
+   <button class="btn btn-large btn-block btn-primary" type="submit">Sign in</button>
+    </div>
     </div>
 
 </form:form>

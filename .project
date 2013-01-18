@@ -3,6 +3,7 @@
 	<name>yumtum-manager</name>
 	<comment></comment>
 	<projects>
+		<project>yumtum-api</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

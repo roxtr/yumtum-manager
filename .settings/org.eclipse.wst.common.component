@@ -2,6 +2,9 @@
     <wb-module deploy-name="yumtum-manager">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <dependent-module archiveName="yumtum-api.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/yumtum-api/yumtum-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="yumtum-manager"/>
         <property name="java-output-path" value="/yumtum-manager/target/classes"/>
     </wb-module>
