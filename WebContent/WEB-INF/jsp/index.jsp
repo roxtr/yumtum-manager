@@ -29,7 +29,7 @@
     <div class="controls controls-row">
     <label class="checkbox">
         <input  type="checkbox"> Remember me
-       <a style="margin:0 1px 0 68px; display:inline" href="/account/resend_password">Forgot password?</a> 
+       <a style="margin:0 1px 0 67px; display:inline" href="/account/resend_password">Forgot password?</a> 
       </label>
       
     
