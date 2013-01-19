@@ -3,12 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="common/header.jsp"></jsp:include>
 
-<div class="container" style="padding-top:250px; padding-right:100px;">
+<div class="container" style="padding-top:150px; padding-right:120px;">
 <%-- <c:set var="user" value="${sessionScope.userPreferences.user}"></c:set> 
 
 <c:choose>
 	<c:when test="${user.isEmpty()}"> --%>
-<form:form action="login" commandName="loginForm" method="post" class="form-horizontal">
+<form:form action="login" commandName="loginForm" method="post" class="hero-unit form-horizontal">
 	<div class="control-group">
 		
 	   <label class="control-label" for="userName">User Name</label> <form:errors path="userName" cssClass="errors"/>
@@ -29,7 +29,7 @@
     <div class="controls controls-row">
     <label class="checkbox">
         <input  type="checkbox"> Remember me
-       <a style="margin:0 1px 0 67px; display:inline" href="/account/resend_password">Forgot password?</a> 
+       <a style="padding:0 1px 0 67px; display:inline" href="/account/resend_password">Forgot password?</a> 
       </label>
       
     
@@ -42,7 +42,13 @@
 <c:otherwise>
 Nothing as of Now
 </c:otherwise>
-</c:choose> --%>	
+</c:choose> --%>
+	
 </div>
+<div id="footer">
+	      
+	         <a style="padding-right: 50px; padding-top:100px;"class="pull-right" href="http://roxtr.com">a roxtr product</a>
+	     
+	    </div>	
 
 <jsp:include page="common/footer.jsp"></jsp:include>
