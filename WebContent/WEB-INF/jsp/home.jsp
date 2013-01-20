@@ -6,12 +6,12 @@
 
 <div class="container" style="padding-top:250px;">
 
-Welcome,&nbsp;${sessionScope['scopedTarget.userPreferences'].fName}&nbsp;${sessionScope['scopedTarget.userPreferences'].lName}
-<br/><br/>
-<a href="restaurants">My Restaurants</a><br/>
-<c:if test="${sessionScope['scopedTarget.userPreferences'].admin}"><a href="admin">Admin Control</a><br/></c:if>
-<a href="bookings">Bookings</a><br/>
-
+<h1>Welcome,&nbsp;${sessionScope['scopedTarget.userPreferences'].fName}&nbsp;${sessionScope['scopedTarget.userPreferences'].lName}</h1>
+<ul class="unstyled" >
+<li style="padding-bottom:5px;"><a class="btn btn-large btn-primary" type="button" href="restaurants">My Restaurants</a></li>
+<li style="padding-bottom:5px;"><c:if test="${sessionScope['scopedTarget.userPreferences'].admin}"><a class="btn btn-large btn-primary" href="admin" type="button">Admin Control</a><br/></c:if></li>
+<li style="padding-bottom:5px;"><a class="btn btn-large btn-primary" type="button" href="bookings">Bookings</a></li>
+</ul>
 </div>
 
 <jsp:include page="common/footer.jsp"></jsp:include>

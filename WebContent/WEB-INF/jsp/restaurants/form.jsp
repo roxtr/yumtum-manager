@@ -35,25 +35,27 @@
               	<label>Longitude</label>
               <form:input path="longitude" cssClass="input-xlarge" id="input04"/>
 		</div>
-		<div class="controls">
+		<div class="input-prepend">
          	<label>Average Cost for Two</label>
+         	<span class="add-on">$</span>
             <form:input path="avgCostForTwo" cssClass="input-xlarge" id="input02"/>   
+            
         </div>
-	    <div class="controls">
+	    <label class="checkbox inline">
             <form:checkbox path="hasWifi" label="Has Wifi" value="1"/>    
-        </div>
+        </label>
 		
-		<div class="controls">
+		<label class="checkbox inline">
             <form:checkbox path="acceptCC" label="Accepts CC"  value="1"/>    
-        </div>
+        </label>
         
-		<div class="controls">
+		<label class="checkbox inline">
             <form:checkbox path="isVeg" label="Serves NonVeg"  value="1"/>    
-        </div>
+        </label>
         
-		<div class="controls">
+		<label class="checkbox inline">
             <form:checkbox path="hasAC" label="Has AC"  value="1"/>    
-        </div>
+        </label>
         <div class="controls">
         	<label>Notification Phone Number</label>
             <form:input path="nfsPhone" cssClass="input-xlarge" id="input02"/>

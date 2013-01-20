@@ -21,5 +21,6 @@
 	<script src="/yumtum-manager/resources/js/jquery.scrollto.min.js"></script>
 	<script src="/yumtum-manager/resources/js/jquery-ui-1.8.20.custom.min.js"></script>
 	<script src="/yumtum-manager/resources/js/login.js"></script>
+	<script src="/yumtum-manager/resources/js/restaurant.js"></script>
 </html>
 	  
