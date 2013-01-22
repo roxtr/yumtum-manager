@@ -8,7 +8,7 @@
 <div class="container" style="padding-top:250px;">
 <form:form modelAttribute="restaurant" method="post">
 		<div class="controls">
-              <label>Restaurant Name</label>
+              <label for="input01">Restaurant Name</label>
               <form:input path="name" cssClass="input-xlarge" id="input01"/>
         </div>
 		<div class="controls">
@@ -17,28 +17,28 @@
         </div>
 		<div class="controls">
               	<label>City</label>
-              <form:input path="city" cssClass="input-xlarge" id="input02"/>
+              <form:input path="city" cssClass="input-xlarge" id="input03"/>
          </div>
 		<div class="controls">
               	<label>Locality</label>
-              <form:input path="locality" cssClass="input-xlarge" id="input02"/>
+              <form:input path="locality" cssClass="input-xlarge" id="input04"/>
         </div>
 		<div class="controls">
               	<label>Address</label>
-              <form:input path="address" cssClass="input-xlarge" id="input02"/>
+              <form:input path="address" cssClass="input-xlarge" id="input05"/>
         </div>
         <div class="controls">
            	<label>Latitude</label>
-             <form:input path="latitude" cssClass="input-xlarge" id="input04"/>
+             <form:input path="latitude" cssClass="input-xlarge" id="input06"/>
 	    </div>
 	    <div class="controls">
               	<label>Longitude</label>
-              <form:input path="longitude" cssClass="input-xlarge" id="input04"/>
+              <form:input path="longitude" cssClass="input-xlarge" id="input07"/>
 		</div>
 		<div class="input-prepend">
          	<label>Average Cost for Two</label>
          	<span class="add-on">$</span>
-            <form:input path="avgCostForTwo" cssClass="input-xlarge" id="input02"/>   
+            <form:input path="avgCostForTwo" cssClass="input-xlarge" id="input08"/>   
             
         </div>
 	    <label class="checkbox inline">
@@ -61,7 +61,7 @@
             <form:input path="nfsPhone" cssClass="input-xlarge" id="input02"/>
         </div>
         <form:hidden path="rest_createdBy" value="${sessionScope['scopedTarget.userPreferences'].userId}"/>
-        <input type="Submit" name="Submit" value="Add/Update Restaurant"/>
+        <input type="Submit" name="Submit" value="Add/Update Restaurant" class="btn btn-large btn-primary"/>
         
 </form:form>
 </div>
