@@ -35,9 +35,9 @@
               	<label>Longitude</label>
               <form:input path="longitude" cssClass="input-xlarge" id="input07"/>
 		</div>
-		<div class="input-prepend">
+		<div class="controls">
          	<label>Average Cost for Two</label>
-         	<span class="add-on">$</span>
+         	
             <form:input path="avgCostForTwo" cssClass="input-xlarge" id="input08"/>   
             
         </div>
