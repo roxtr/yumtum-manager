@@ -1,3 +1,4 @@
+// TO do add validations for the submit button and add ajax form submission
 $(document).ready(function(){
 	
 	$('input[type=text]').blur(function(e)
@@ -24,6 +25,23 @@ $(document).ready(function(){
 				}
 			    
 			});
+	
+	$("form").submit(function() {
+	    var isFormValid = true;
+	    $(".input-xlarge").each(function() {
+	        if ($.trim($(this).val()) == "") {
+	            $(this).addClass("control-group error");
+	            isFormValid = false;
+	        } else {
+	            $(this).removeClass("control-group error").addClass('input-xlarge');
+	        }
+	    });
+	    // the following lines should be placed here
+	    if (!isFormValid) {
+	        alert("Please fill in all the required fields (indicated by *)");
+	    }
+	    return isFormValid;
+	});
 	
 	
 	
