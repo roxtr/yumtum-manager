@@ -1,0 +1,14 @@
+.bookingstable
+{
+	height:200px;
+	overflow:auto;
+}
+
+.sidebar
+{
+	height:200px;
+	width:150px;
+	float:left;
+	position:relative;
+	left:-20px;
+}
