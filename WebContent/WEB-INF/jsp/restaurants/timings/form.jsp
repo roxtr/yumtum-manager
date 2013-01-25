@@ -19,13 +19,16 @@
 		<div class="controls">
               <label>Time of Day</label>
               <form:select path="reserveTime" id="select01">
-	            <form:option value="12:00">12:00PM</form:option>
-				<form:option value="01:00">01:00PM</form:option>
-				<form:option value="02:00">02:00PM</form:option >
-				<form:option value="07:00">07:00PM</form:option>
-				<form:option value="08:00">08:00PM</form:option>
-				<form:option value="09:00">09:00PM</form:option>
-				<form:option value="10:00">10:00PM</form:option>
+              	<form:option value="0700">07:00AM</form:option>
+              	<form:option value="0800">08:00AM</form:option>
+              	<form:option value="0900">09:00AM</form:option>
+	            <form:option value="1200">12:00PM</form:option>
+				<form:option value="1300">01:00PM</form:option>
+				<form:option value="1400">02:00PM</form:option >
+				<form:option value="1900">07:00PM</form:option>
+				<form:option value="2000">08:00PM</form:option>
+				<form:option value="2100">09:00PM</form:option>
+				<form:option value="2200">10:00PM</form:option>
 	          </form:select>
         </div>
 		<div class="controls">
@@ -34,12 +37,12 @@
         </div>
 		<div class="controls">
               <label>Available Seats</label>
-              <form:input path="availableSeats" cssClass="input-xlarge" id="input01"/>
+              <form:input path="availableSeats" cssClass="input-xlarge" id="input02"/>
         </div>
         <form:hidden path="timingId"/>
         <form:hidden path="restaurant_id"/>
         <form:hidden path="createdBy"/>
-		<input type="Submit" name="Submit" value="Add Timing"/>
+		 <input type="Submit" name="Submit" value="Add Timings" class="btn btn-large btn-primary"/>
 </form:form>
 </div>
 <jsp:include page="../../common/footer.jsp"></jsp:include>

@@ -26,7 +26,7 @@ $(document).ready(function(){
 			    
 			});
 	
-	$("form").submit(function() {
+	$("#restaurant").submit(function() {
 	    var isFormValid = true;
 	    $(".input-xlarge").each(function() {
 	        if ($.trim($(this).val()) == "") {
