@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.google.gson.Gson;
+
 public class BookingService {
 
 	private BookingServiceImpl bookingServiceImpl = new BookingServiceImpl();
@@ -92,6 +94,23 @@ public class BookingService {
 		bookVO.setTiming_id(bookingForm.getTiming_id());
 		
 		return bookVO;
+	}
+	
+	public String getJsonBookings(UserPreferences userPreferences) {
+
+		ResultVO result = bookingServiceImpl.getBookings(userPreferences.getRestaurantsOwned());
+		
+		List<BookingVO> bookingVOList = result.getBookVOList();
+		List<BookingForm> bookingFormList = new ArrayList<BookingForm>();
+
+		if(bookingVOList != null){
+				
+				for(BookingVO bookingVO:bookingVOList){
+					bookingFormList.add(setLocalVO(bookingVO));
+				}
+			}
+		
+		return new Gson().toJson(bookingFormList);
 	}
 
 	

@@ -106,7 +106,7 @@ public class BookingController {
 	
 	@RequestMapping(value="/{restId}/timings", method = RequestMethod.GET )
 	@ResponseBody
-	public String getTImings(@PathVariable("restId")int restId){
+	public String getTimings(@PathVariable("restId")int restId){
 		
 		List<TimingForm> timingFormList = new ArrayList<TimingForm>();
 		String timingList = "";
@@ -135,5 +135,25 @@ public class BookingController {
 		timingList = "["+timingList.substring(0, timingList.length()-1)+"]";
 		return timingList;
 	}
+	
+	@RequestMapping(value="/all/json", method = RequestMethod.GET )
+	@ResponseBody
+	public String getJsonBookings(){
 		
+		String bookingJsonList = null;
+		try{
+			if(userPreferences.getfName() == null){
+					
+				return "";
+			
+			}else{
+				bookingJsonList = bookingService.getJsonBookings(userPreferences);
+				}
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		
+		return bookingJsonList;
+		}
 }
