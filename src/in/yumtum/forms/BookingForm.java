@@ -11,8 +11,11 @@ public class BookingForm {
     private String reserveDate;
     private Integer restId;
     private Integer timing_id;
-    
-	public Integer getBookingId() {
+    private String bookingUser;
+    private String bookingPhoneNo;
+    private String bookingEmail;
+
+    public Integer getBookingId() {
 		return bookingId;
 	}
 	public void setBookingId(Integer bookingId) {
@@ -55,4 +58,28 @@ public class BookingForm {
 		this.timing_id = timing_id;
 	}
 
+	public String getBookingUser() {
+		return bookingUser;
+	}
+	public void setBookingUser(String bookingUser) {
+		this.bookingUser = bookingUser;
+	}
+	public String getBookingPhoneNo() {
+		return bookingPhoneNo;
+	}
+	public void setBookingPhoneNo(String bookingPhoneNo) {
+		this.bookingPhoneNo = bookingPhoneNo;
+	}
+	public String getBookingEmail() {
+		return bookingEmail;
+	}
+	public void setBookingEmail(String bookingEmail) {
+		this.bookingEmail = bookingEmail;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
 }

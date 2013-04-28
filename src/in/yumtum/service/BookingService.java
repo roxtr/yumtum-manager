@@ -12,7 +12,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 
@@ -48,6 +50,9 @@ public class BookingService {
 		bookForm.setReserveDate(bookingVO.getReserveDate().toString());
 		bookForm.setRestId(bookingVO.getRestId());
 		bookForm.setTiming_id(bookingVO.getTiming_id());
+		bookForm.setBookingEmail(bookingVO.getBookingEmail());
+		bookForm.setBookingUser(bookingVO.getBookingUser());
+		bookForm.setBookingPhoneNo(bookingVO.getBookingPhoneNo());
 		
 		return bookForm;
 	}
@@ -110,7 +115,13 @@ public class BookingService {
 				}
 			}
 		
-		return new Gson().toJson(bookingFormList);
+		Map<String, String> bookingsMap = new HashMap<String, String>();
+		
+		Gson jsonCov = new Gson();
+		
+		bookingsMap.put("Bookings",jsonCov.toJson(bookingFormList));
+		
+		return jsonCov.toJson(bookingsMap);
 	}
 
 	

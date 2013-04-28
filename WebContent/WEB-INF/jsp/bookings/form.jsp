@@ -123,6 +123,15 @@
 	              </c:forEach>
 	          </form:select> 
         </div>
+        <div class="controls">
+        <form:input path="bookingUser" type="text" class="input-xlarge" id="input01" />
+        </div>
+        <div class="controls">
+        <form:input path="bookingEmail" type="text" class="input-xlarge" id="input02" />
+        </div>
+        <div class="controls">
+        <form:input path="bookingPhoneNo" type="text" class="input-xlarge" id="input03" />
+        </div>
         <input type="Submit" name="Submit" value="Add Booking"/>
 </form:form>
 </div>
