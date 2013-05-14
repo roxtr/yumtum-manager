@@ -41,12 +41,9 @@ public class LoginController {
 	public String validateUserJson(LoginForm loginForm, Map model){
 		
 		loginForm = (LoginForm) model.get("loginForm");
-		if(userService.checkLogin(loginForm.getUserName(), loginForm.getPassword(), userPreferences)){
-		return "redirect:home";
-		}else{
-			return "redirect:login";
+		String result = userService.checkLoginJson(loginForm.getUserName(), loginForm.getPassword(), userPreferences);
+			return result;
 		}
-	}
 	
 	@RequestMapping (value="/logout")
 	public String logoutUser(){

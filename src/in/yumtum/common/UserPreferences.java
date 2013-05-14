@@ -112,5 +112,11 @@ public class UserPreferences implements Serializable {
 	public void setRestaurantCreate(Boolean restaurantCreate) {
 		this.restaurantCreate = restaurantCreate;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 
 }

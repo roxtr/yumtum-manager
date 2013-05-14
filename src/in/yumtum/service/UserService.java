@@ -1,9 +1,17 @@
 package in.yumtum.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+
 import in.yumtum.api.service.impl.UserServiceImpl;
 import in.yumtum.api.vo.ResultVO;
 import in.yumtum.api.vo.UserVO;
 import in.yumtum.common.UserPreferences;
+import in.yumtum.forms.BookingForm;
 import in.yumtum.forms.UserForm;
 
 public class UserService {
@@ -101,5 +109,21 @@ public class UserService {
 		user.setRestaurantCreate(userForm.getRestaurantCreate());
 		
 		return user;
+	}
+
+	public String checkLoginJson(String userName, String password,
+			UserPreferences userPreferences) {
+		
+		Boolean check = checkLogin(userName, password, userPreferences);
+		
+		Gson jsonCov = new Gson();
+		Map<String, String> loginMap = new HashMap<String, String>();
+		
+		 //loginMap.put("userPref",jsonCov.toJson(userPreferences));
+			
+		 loginMap.put("result", check.toString());
+			
+		return jsonCov.toJson(loginMap);
+		
 	}
 }
