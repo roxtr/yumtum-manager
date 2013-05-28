@@ -147,7 +147,7 @@ public class BookingController {
 				return "";
 			
 			}else{
-				bookingJsonList = bookingService.getJsonBookings(userPreferences);
+				bookingJsonList = bookingService.getBookingsJson(userPreferences);
 				}
 		}catch(Exception e){
 			e.printStackTrace();

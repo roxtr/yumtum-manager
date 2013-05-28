@@ -101,7 +101,7 @@ public class BookingService {
 		return bookVO;
 	}
 	
-	public String getJsonBookings(UserPreferences userPreferences) {
+	public String getBookingsJson(UserPreferences userPreferences) {
 
 		ResultVO result = bookingServiceImpl.getBookings(userPreferences.getRestaurantsOwned());
 		
